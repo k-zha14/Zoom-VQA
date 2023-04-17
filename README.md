@@ -46,7 +46,7 @@ python extract.py -d data/test/ -o data/test_extract_imgs_2fps -n 2
 ## Usage
 ### 1) IQA Branch
 
-#### Evaluate on test subset
+#### Evaluate on VDPVE test-subset
 Please verify the current path is ’project/IQA’, download the [checkpoint](https://github.com/k-zha14/Zoom-VQA/releases/download/v0.1/iqa_best_29epoch_checkpoint.pth.tar) and save it in ‘project/IQA/checkpoints/’. After that, run the following command and the inferred results will be saved in ‘project/results/iqa_pred.txt' file. 
 
 ```bash
@@ -63,7 +63,7 @@ python train_DDP_single.py --arch cpnet_multi --dataset vdpve_2fps --batch_size 
 
 VQA pipeline are almostly borrowed from [FAST-VQA](https://github.com/VQAssessment/FAST-VQA-and-FasterVQA), which is trained/inferred on videos directly. Before executing following commands, please make sure your current path is ‘project/VQA/‘
 
-### 3.1 Infer
+#### Evaluate on VDPVE test-subset
 Download the [checkpoint](https://github.com/k-zha14/Zoom-VQA/releases/download/v0.1/vqa_best_29e_val-vqpve_s.pth) and save it in ‘project/VQA/checkpoints/’. After that, run the following command and the inferred results will be saved in ‘project/results/vqa_pred.txt' file. 
 
 ```bash
@@ -71,7 +71,7 @@ Download the [checkpoint](https://github.com/k-zha14/Zoom-VQA/releases/download/
 python vqa_mine.py --rsize 480 --backbone swin_tiny_grpb --patch_size 6 --dataset [test/ol_val/off_val]
 ```
 
-### 3.2 Train & Reproduce
+#### Train & Reproduce
 Specifically, VideoSwinTransformer consumes pretty much GPU memory. So you should assure your GPU memory is larger than 24GB (V100 32GB is better).
 ```bash
 python split_train.py --epochs 30 --lr 1e-3 --b_lr_decay 0.1 --backbone swin_tiny_grpb --batch_size 16 --rsize 480 --patch_size 6 --suffix lr1e-3_fragments_r480c336_blr01_reproduce
