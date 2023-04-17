@@ -47,7 +47,7 @@ python extract.py -d data/test/ -o data/test_extract_imgs_2fps -n 2
 ### 1) IQA Branch
 
 #### Evaluate on test subset
-Please verify the current path is ’project/IQA’, download the checkpoint and save it in ‘project/IQA/checkpoints/’. After that, run the following command and the inferred results will be saved in ‘project/results/iqa_pred.txt' file. 
+Please verify the current path is ’project/IQA’, download the [checkpoint](https://github.com/k-zha14/Zoom-VQA/releases/download/v0.1/iqa_best_29epoch_checkpoint.pth.tar) and save it in ‘project/IQA/checkpoints/’. After that, run the following command and the inferred results will be saved in ‘project/results/iqa_pred.txt' file. 
 
 ```bash
 # infer on the test - FINAL TEST subset(253 videos), val - online val subset(119 videos)
@@ -64,7 +64,7 @@ python train_DDP_single.py --arch cpnet_multi --dataset vdpve_2fps --batch_size 
 VQA pipeline are almostly borrowed from [FAST-VQA](https://github.com/VQAssessment/FAST-VQA-and-FasterVQA), which is trained/inferred on videos directly. Before executing following commands, please make sure your current path is ‘project/VQA/‘
 
 ### 3.1 Infer
-Download the checkpoint and save it in ‘project/VQA/checkpoints/’. After that, run the following command and the inferred results will be saved in ‘project/results/vqa_pred.txt' file. 
+Download the [checkpoint](https://github.com/k-zha14/Zoom-VQA/releases/download/v0.1/vqa_best_29e_val-vqpve_s.pth) and save it in ‘project/VQA/checkpoints/’. After that, run the following command and the inferred results will be saved in ‘project/results/vqa_pred.txt' file. 
 
 ```bash
 # test: FINAL TEST subset(253 videos), ol_val: online val subset(119 videos), off_val: my split validation, 111 videos
